@@ -1,5 +1,17 @@
-* {
-  margin: 0;
-  padding: 0;
+#root {
+  max-width: 100vh;
+  margin: 0 auto;
+  padding: 2rem;
   text-align: center;
+  background-color:  #F2BE22;
+  border-radius: 5px;  
+}
+
+body {
+  font-family: 'Nunito', sans-serif !important;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-image: linear-gradient(to top, #F29727 0%, #F24C3D 100%);
 }
