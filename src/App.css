@@ -5,7 +5,7 @@
   text-align: center;
   background-color:  #F2BE22;
   border-radius: 5px;  
-}
+} 
 
 body {
   font-family: 'Nunito', sans-serif !important;
@@ -14,4 +14,14 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-image: linear-gradient(to top, #F29727 0%, #F24C3D 100%);
+} 
+
+.table-dark {
+  border: 1px solid #000;
+  border-radius: 5px;
+} 
+
+th, td {
+  padding: 8px;
+  border: 1px solid #000;
 }

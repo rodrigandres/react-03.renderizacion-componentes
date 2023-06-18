@@ -1,10 +1,9 @@
 import { Table } from "react-bootstrap";
-import BaseColaboradores from "../../BaseColaboradores";
 
-function Listado() {
+function Listado({ colaboradores }) {
     return (
-        <Table>
-        <thead striped bordered hover size="sm">
+        <Table striped bordered className="table-dark">
+        <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Correo</th>
@@ -14,7 +13,7 @@ function Listado() {
             </tr>
         </thead>
         <tbody>
-        {BaseColaboradores.map((colaborador) => (
+        {colaboradores.map((colaborador) => (
             <tr key={colaborador.id}>
                 <td>{colaborador.nombre} </td>
                 <td>{colaborador.correo}</td>
