@@ -2,22 +2,20 @@ import React, { useState} from "react";
 import  { Form, Button} from 'react-bootstrap';
 import {BaseColaboradores} from "../../BaseColaboradores";
 
-const Formulario = ({ agregarColaborador}) => {
-    // cuerpo formulario // estado del colaborador: 
+const Formulario = ({ setMessage, setBsStyle, agregarColaborador}) => {
+    // Cuerpo formulario // Estado del colaborador: 
     const [nombre, setNombre] = useState ('');
     const [correo, setCorreo] = useState ('');
     const [edad, setEdad] = useState('');
     const [cargo, setCargo] = useState('');
     const [telefono, setTelefono] = useState('');
-    // mensaje de error: 
-    const [error, setError] = useState('');
 
     const enviarFormulario = (e) => {
         e.preventDefault();
 
         //Validacion campos vacios
         if (!nombre || !correo || !edad || !cargo || !telefono){
-            setError('Todos los campos son obligatorios')
+            setMessage('Todos los campos son obligatorios');
             return
         }
 
@@ -37,7 +35,10 @@ const Formulario = ({ agregarColaborador}) => {
         setEdad('');
         setCargo('');
         setTelefono('')
-        setError('');
+        setMessage('');
+
+        setMessage('Colaborador agregado correctamente');
+        setBsStyle('success');
     }; 
 
 
@@ -69,9 +70,7 @@ const Formulario = ({ agregarColaborador}) => {
             <Form.Control type="tel" value={telefono} onChange={(e) => setTelefono(e.target.value)}/>
             </Form.Group>
     
-            {error && <p>{error}</p>}
-    
-            <Button className="btn btn-success btn-block w-100 pt-1 pb-1" type="submit">Agregar Colaborador</Button>
+            <Button variant="primary" className="btn btn-success btn-block w-100 pt-1 pb-1" type="submit">Agregar Colaborador</Button>
         </Form>
         );
     };
