@@ -2,7 +2,7 @@ import { Table } from "react-bootstrap";
 
 function Listado({ colaboradores }) {
     return (
-        <Table striped bordered className="table-dark">
+        <Table striped bordered responsive>
         <thead>
             <tr>
                 <th>Nombre</th>

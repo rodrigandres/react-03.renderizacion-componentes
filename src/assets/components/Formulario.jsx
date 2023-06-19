@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import  { Form, Button} from 'react-bootstrap';
 import {BaseColaboradores} from "../../BaseColaboradores";
 
-const Formulario = ({ setMessage, setBsStyle, agregarColaborador}) => {
+const Formulario = ({ colaboradores, setMessage, setBsStyle, agregarColaborador}) => {
     // Cuerpo formulario // Estado del colaborador: 
     const [nombre, setNombre] = useState ('');
     const [correo, setCorreo] = useState ('');
@@ -20,7 +20,7 @@ const Formulario = ({ setMessage, setBsStyle, agregarColaborador}) => {
         }
 
         const nuevoColaborador = {
-            id: BaseColaboradores.length + 1,
+            id: colaboradores.length + 1,
             nombre,
             correo,
             edad,
@@ -37,40 +37,35 @@ const Formulario = ({ setMessage, setBsStyle, agregarColaborador}) => {
         setTelefono('')
         setMessage('');
 
-        setMessage('Colaborador agregado correctamente');
+        setMessage('Colaborador agregado !');
         setBsStyle('success');
     }; 
 
 
 
     return (
-        <Form onSubmit={enviarFormulario}>
+        <Form className="d-flex flex-column form-group gap-3" onSubmit={enviarFormulario}>
             <Form.Group controlId="nombre">
-            <Form.Label>Nombre:</Form.Label>
-            <Form.Control type="text" value={nombre} onChange={(e) => setNombre(e.target.value)}/>
+            <Form.Control type="text" placeholder='Nombre del colaborador' value={nombre} onChange={(e) => setNombre(e.target.value)}/>
             </Form.Group>
     
             <Form.Group controlId="correo">
-            <Form.Label>Correo:</Form.Label>
-            <Form.Control type="email" value={correo} onChange={(e) => setCorreo(e.target.value)} />
+            <Form.Control type="email" placeholder='Email del colaborador' value={correo} onChange={(e) => setCorreo(e.target.value)} />
             </Form.Group>
     
             <Form.Group controlId="edad">
-            <Form.Label>Edad:</Form.Label>
-            <Form.Control type="number" value={edad} onChange={(e) => setEdad(e.target.value)}/>
+            <Form.Control type="number" placeholder='Edad del colaborador' value={edad} onChange={(e) => setEdad(e.target.value)}/>
             </Form.Group>
     
             <Form.Group controlId="cargo">
-            <Form.Label>Cargo:</Form.Label>
-            <Form.Control type="text" value={cargo} onChange={(e) => setCargo(e.target.value)} />
+            <Form.Control type="text" placeholder='Cargo del colaborador' value={cargo} onChange={(e) => setCargo(e.target.value)} />
             </Form.Group>
     
             <Form.Group controlId="telefono">
-            <Form.Label>Teléfono:</Form.Label>
-            <Form.Control type="tel" value={telefono} onChange={(e) => setTelefono(e.target.value)}/>
+            <Form.Control type="tel" placeholder='Teléfono del colaborador' value={telefono} onChange={(e) => setTelefono(e.target.value)}/>
             </Form.Group>
     
-            <Button variant="primary" className="btn btn-success btn-block w-100 pt-1 pb-1" type="submit">Agregar Colaborador</Button>
+            <Button style={{background: "#5200ff"}} className="btn btn-block w-100 pt-1 pb-1" type="submit">Agregar Colaborador</Button>
         </Form>
         );
     };
